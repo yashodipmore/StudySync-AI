@@ -261,24 +261,45 @@ studysync-ai/
 ## Screenshots
 
 ### Landing Page
-- Hero section with features
-- Testimonials from students
-- Call-to-action buttons
+<img src="snapshots/1.png" width="400" alt="Landing Page">
+
+### Login & Register
+<p>
+<img src="snapshots/2.png" width="300" alt="Login">
+<img src="snapshots/3.png" width="300" alt="Register">
+</p>
 
 ### Dashboard
-- Welcome header with stats
-- Quick action cards
-- Recent activity feed
+<img src="snapshots/4.png" width="400" alt="Dashboard">
 
 ### AI Chat
-- Real-time streaming responses
-- Message history
-- Copy & regenerate options
+<img src="snapshots/5.png" width="400" alt="AI Chat">
 
 ### Socratic Mode
-- Topic selection
-- Guided questioning
-- Progress tracking
+<img src="snapshots/6.png" width="400" alt="Socratic Mode">
+
+### Notes & Summarization
+<img src="snapshots/7.png" width="400" alt="Notes Upload">
+
+### Quiz Generator
+<img src="snapshots/8.png" width="400" alt="Quiz Generator">
+
+### Voice Notes
+<img src="snapshots/9.png" width="400" alt="Voice Notes">
+
+### Dark Mode
+<p>
+<img src="snapshots/10.png" width="300" alt="Dark Mode 1">
+<img src="snapshots/11.png" width="300" alt="Dark Mode 2">
+</p>
+
+### More Screenshots
+<p>
+<img src="snapshots/12.png" width="250" alt="Screenshot 12">
+<img src="snapshots/13.png" width="250" alt="Screenshot 13">
+<img src="snapshots/15.png" width="250" alt="Screenshot 15">
+<img src="snapshots/16.png" width="250" alt="Screenshot 16">
+</p>
 
 ## API Endpoints
 
