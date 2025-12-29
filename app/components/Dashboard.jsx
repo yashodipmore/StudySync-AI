@@ -98,7 +98,7 @@ export default function Dashboard() {
   return (
     <div className="max-w-7xl mx-auto">
       {/* Welcome Header */}
-      <div className="bg-gradient-to-r from-brand-orange/90 to-deep-orange/80 dark:from-dark-orange dark:to-deep-orange rounded-2xl md:rounded-3xl p-5 md:p-8 mb-6 md:mb-8 text-white border-2 border-brand-orange/50 dark:border-dark-orange">
+      <div className="bg-gradient-to-r from-accent-dark to-accent-violet rounded-2xl md:rounded-3xl p-5 md:p-8 mb-6 md:mb-8 text-white border-2 border-accent-light">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <h1 className="text-xl md:text-3xl font-playfair font-semibold mb-1 md:mb-2">

@@ -389,7 +389,7 @@ export default function LandingPage() {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-brand-orange/90 to-deep-orange/80">
+      <section id="benefits" className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-accent-dark to-accent-violet">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-playfair font-semibold text-white mb-3 sm:mb-4">

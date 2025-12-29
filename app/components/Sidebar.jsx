@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { useAuth } from '@/context/AuthContext'
-import { useTheme } from '@/app/context/ThemeContext'
+import { useTheme } from '@/context/ThemeContext'
 import { 
   MessageSquare, 
   BrainCircuit, 

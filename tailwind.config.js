@@ -18,6 +18,12 @@ module.exports = {
         'dark-orange': '#E67320',
         'border-light': '#D4CFC9',
         'border-dark': '#A89F97',
+        // Grey-Violet accent colors (for filled sections)
+        'accent-dark': '#2D2D3A',
+        'accent-medium': '#3D3D4A',
+        'accent-light': '#4D4D5A',
+        'accent-violet': '#5B5B8A',
+        'accent-violet-light': '#7B7BA8',
         // Dark mode colors
         'dark-bg': '#0F0F0F',
         'dark-card': '#1A1A1A',
@@ -26,6 +32,7 @@ module.exports = {
         'dark-border-strong': '#4A4A4A',
         'dark-text': '#F5F5F5',
         'dark-text-muted': '#A0A0A0',
+        'dark-surface': '#1E1E2E',
       },
       borderRadius: {
         'card': '20px',

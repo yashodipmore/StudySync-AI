@@ -225,7 +225,7 @@ export default function LoginPage() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
                       required
-                      className="w-full pl-10 sm:pl-12 pr-4 py-3 sm:py-3.5 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-deep-orange transition-colors text-sm sm:text-base text-gray-900 placeholder-gray-400"
+                      className="w-full pl-10 sm:pl-12 pr-4 py-3 sm:py-3.5 bg-white dark:bg-dark-surface border-2 border-gray-200 dark:border-dark-border rounded-xl focus:outline-none focus:border-deep-orange transition-colors text-sm sm:text-base text-gray-900 dark:text-dark-text placeholder-gray-400 dark:placeholder-gray-500"
                     />
                   </div>
                 </div>
@@ -444,7 +444,7 @@ export default function LoginPage() {
       </div>
 
       {/* Right Side - Visual */}
-      <div className="hidden lg:flex flex-1 bg-gradient-to-br from-deep-orange to-dark-orange items-center justify-center p-8 xl:p-12">
+      <div className="hidden lg:flex flex-1 bg-gradient-to-br from-accent-dark to-accent-violet items-center justify-center p-8 xl:p-12">
         <div className="max-w-lg text-center text-white">
           <div className="w-20 h-20 xl:w-24 xl:h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 xl:mb-8 backdrop-blur-sm">
             <BookOpen size={40} className="text-white" />

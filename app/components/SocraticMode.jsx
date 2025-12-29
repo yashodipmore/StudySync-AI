@@ -397,7 +397,7 @@ export default function SocraticMode() {
           )}
 
           {/* Input Area */}
-          <div className="bg-white border-2 border-border-dark rounded-card p-2.5 sm:p-3 md:p-4">
+          <div className="bg-white dark:bg-dark-card border-2 border-border-dark dark:border-dark-border rounded-card p-2.5 sm:p-3 md:p-4">
             <div className="flex gap-2 sm:gap-3">
               <textarea
                 ref={inputRef}
@@ -406,7 +406,7 @@ export default function SocraticMode() {
                 onKeyPress={handleKeyPress}
                 placeholder="Share your thoughts..."
                 rows={1}
-                className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-light-orange border-2 border-gray-200 rounded-input focus:outline-none focus:border-deep-orange resize-none text-sm sm:text-base text-gray-900 placeholder-gray-500"
+                className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-light-orange dark:bg-dark-surface border-2 border-gray-200 dark:border-dark-border rounded-input focus:outline-none focus:border-deep-orange resize-none text-sm sm:text-base text-gray-900 dark:text-dark-text placeholder-gray-500 dark:placeholder-gray-400"
                 style={{ minHeight: '44px', maxHeight: '100px' }}
               />
               <button

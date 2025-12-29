@@ -165,7 +165,7 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen bg-cream dark:bg-dark-bg flex">
       {/* Left Side - Visual */}
-      <div className="hidden lg:flex flex-1 bg-gradient-to-br from-deep-orange to-dark-orange items-center justify-center p-12">
+      <div className="hidden lg:flex flex-1 bg-gradient-to-br from-accent-dark to-accent-violet items-center justify-center p-12">
         <div className="max-w-lg text-white">
           <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mb-8 backdrop-blur-sm">
             <BookOpen size={48} className="text-white" />
