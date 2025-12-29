@@ -1,206 +1,366 @@
-# 🎓 StudySync AI
+# 📚 StudySync AI
 
-> **The AI That Teaches, Not Just Tells**
+> **The AI That Teaches, Not Just Tells** - Your intelligent study companion powered by AI
 
-A modern, AI-powered study companion built with Next.js 14, Tailwind CSS, and Groq AI. StudySync AI helps students learn more effectively through Socratic teaching, voice-to-notes conversion, intelligent summarization, and auto-generated quizzes.
+[![Next.js](https://img.shields.io/badge/Next.js-14.2-black?logo=next.js)](https://nextjs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green?logo=mongodb)](https://www.mongodb.com/atlas)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-blue?logo=tailwindcss)](https://tailwindcss.com/)
+[![Groq AI](https://img.shields.io/badge/Groq-LLaMA%203.3-orange)](https://groq.com/)
 
-![StudySync AI](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)
-![Groq AI](https://img.shields.io/badge/Groq-AI-orange?style=for-the-badge)
-
-## ✨ Features
+## 🌟 Features
 
 ### 🤖 AI Chat Assistant
-- Natural conversation with an AI study buddy
-- Clear explanations with examples
-- Supports follow-up questions and context
+- Real-time AI-powered chat with streaming responses
+- Context-aware conversations
+- Markdown support for formatted responses
 
-### 🧠 Socratic Teaching Mode ⭐ UNIQUE
-- AI guides you to discover answers yourself
-- Thought-provoking questions instead of direct answers
-- Builds deeper understanding and critical thinking
-- Based on proven educational psychology
+### 🧠 Socratic Learning Mode
+- Learn through guided questioning
+- AI asks thought-provoking questions instead of giving direct answers
+- Deeper understanding of concepts
 
-### 🎙️ Voice Notes to Study Guide ⭐ UNIQUE
-- Record your thoughts while studying
-- Real-time speech-to-text transcription
-- AI converts rambling speech into organized study notes
-- Download formatted notes as markdown
+### 🎤 Voice Notes
+- Record voice notes with one click
+- AI automatically transcribes and formats your notes
+- Smart structuring of spoken content
 
-### 📝 Notes Upload & Summary
-- Upload TXT, MD files or paste text directly
-- AI extracts key concepts and definitions
-- Creates structured summaries with headings
-- One-click quiz generation from notes
+### 📝 Notes Upload & Summarization
+- Upload study materials (text/paste content)
+- AI generates intelligent summaries
+- Highlights key concepts and takeaways
 
 ### 📊 Quiz Generator
-- Auto-generate multiple choice quizzes from any content
-- Choose number of questions (3, 5, 7, or 10)
-- Instant feedback with explanations
-- Track your score and review answers
+- Auto-generate quizzes from your notes
+- Multiple choice questions with explanations
+- Track your quiz performance
 
-### 📈 Progress Dashboard
-- Visual statistics for your learning journey
-- Study streak tracking
-- Weekly activity charts
-- Recent activity timeline
+### 🌓 Dark/Light Mode
+- Beautiful UI with theme toggle
+- Smooth transitions between modes
+- Comfortable reading in any lighting
+
+### 📱 Fully Responsive
+- Works on mobile, tablet, and desktop
+- Optimized touch interactions
+- Adaptive layouts
+
+## 🚀 Live Demo
+
+🔗 **[Visit StudySync AI](https://studysync-ai.vercel.app)**
 
 ## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| **Next.js 14** | React framework with App Router |
-| **Tailwind CSS** | Utility-first styling |
-| **Groq AI** | Fast LLM inference (free tier available) |
-| **Lucide React** | Professional icon library |
-| **Web Speech API** | Browser-native voice recognition |
+| Category | Technology |
+|----------|------------|
+| **Framework** | Next.js 14 (App Router) |
+| **Styling** | Tailwind CSS |
+| **Database** | MongoDB Atlas |
+| **AI Model** | Groq LLaMA 3.3 70B Versatile |
+| **Authentication** | JWT + OTP Email Verification |
+| **Email** | Nodemailer (Gmail SMTP) |
+| **Deployment** | Vercel |
 
-## 🚀 Quick Start
+## 📦 Installation
 
 ### Prerequisites
-- Node.js 18+ installed
-- Groq API key (free at [console.groq.com](https://console.groq.com))
+- Node.js 18+ 
+- npm or yarn
+- MongoDB Atlas account
+- Groq API key
+- Gmail account (for OTP emails)
 
-### Installation
+### 1. Clone the repository
 
-1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/studysync-ai.git
-cd studysync-ai
+git clone https://github.com/yashodipmore/StudySync-AI.git
+cd StudySync-AI/studysync-ai
 ```
 
-2. **Install dependencies**
+### 2. Install dependencies
+
 ```bash
 npm install
 ```
 
-3. **Configure environment**
-```bash
-# Create .env.local file and add your Groq API key
-GROQ_API_KEY=gsk_your_api_key_here
+### 3. Environment Setup
+
+Create a `.env.local` file in the root directory:
+
+```env
+# AI Configuration
+GROQ_API_KEY=your_groq_api_key_here
+
+# Authentication
+JWT_SECRET=your-super-secret-jwt-key-here
+
+# Database
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/studysync?retryWrites=true&w=majority
+
+# Email Configuration (Gmail SMTP)
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-gmail-app-password
+EMAIL_FROM=StudySync AI <your-email@gmail.com>
 ```
 
-4. **Start development server**
+#### 🔑 Getting API Keys:
+
+**1. Groq API Key**
+- Sign up at [console.groq.com](https://console.groq.com)
+- Go to API Keys section
+- Create a new API key
+
+**2. MongoDB URI**
+- Create a free cluster at [MongoDB Atlas](https://www.mongodb.com/atlas)
+- Click "Connect" on your cluster
+- Choose "Connect your application"
+- Copy the connection string and replace `<password>` with your password
+
+**3. Gmail App Password**
+- Enable 2-Factor Authentication on your Google account
+- Go to Google Account → Security → 2-Step Verification → App Passwords
+- Select "Mail" and "Other (Custom name)"
+- Enter "StudySync AI" and generate
+- Copy the 16-character password
+
+### 4. Run the development server
+
 ```bash
 npm run dev
 ```
 
-5. **Open in browser**
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### 5. Run on Network (Access from other devices)
+
+```bash
+npm run dev -- -H 0.0.0.0
 ```
-http://localhost:3000
+
+Access from other devices using your IP: `http://YOUR_IP:3000`
+
+## 🌐 Deployment on Vercel
+
+### Method 1: Vercel CLI
+
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Deploy
+vercel --prod
 ```
+
+### Method 2: GitHub Integration
+
+1. Push your code to GitHub
+2. Go to [vercel.com](https://vercel.com)
+3. Import your GitHub repository
+4. Add environment variables in Project Settings
+5. Deploy!
+
+### ⚠️ Important: Add Environment Variables
+
+After deployment, go to:
+`Vercel Dashboard → Your Project → Settings → Environment Variables`
+
+Add all variables from your `.env.local` file.
 
 ## 📁 Project Structure
 
 ```
 studysync-ai/
 ├── app/
-│   ├── api/
-│   │   ├── chat/route.js      # AI chat endpoint
-│   │   ├── summarize/route.js # Notes summarization
-│   │   └── quiz/route.js      # Quiz generation
-│   ├── components/
-│   │   ├── Sidebar.jsx        # Navigation sidebar
-│   │   ├── ChatInterface.jsx  # AI chat UI
-│   │   ├── SocraticMode.jsx   # Socratic teaching
-│   │   ├── VoiceNotes.jsx     # Voice recording
-│   │   ├── NotesUpload.jsx    # File upload & summary
-│   │   ├── QuizGenerator.jsx  # Quiz interface
-│   │   └── Dashboard.jsx      # Progress stats
-│   ├── globals.css            # Global styles
-│   ├── layout.js              # Root layout
-│   └── page.js                # Main page
-├── public/                    # Static assets
-├── .env.local                 # Environment variables
-├── tailwind.config.js         # Tailwind configuration
-├── package.json               # Dependencies
-└── README.md                  # This file
+│   ├── (auth)/              # Authentication pages
+│   │   ├── login/           # Login with password or OTP
+│   │   └── register/        # Registration with OTP verification
+│   ├── (dashboard)/         # Protected dashboard pages
+│   │   ├── chat/            # AI Chat interface
+│   │   ├── dashboard/       # Main dashboard with stats
+│   │   ├── notes/           # Notes upload & summarization
+│   │   ├── quiz/            # Quiz generator
+│   │   ├── socratic/        # Socratic learning mode
+│   │   └── voice-notes/     # Voice recording & transcription
+│   ├── (landing)/           # Public landing page
+│   ├── api/                 # Backend API routes
+│   │   ├── auth/            # Authentication APIs
+│   │   │   ├── login/       # POST: Login user
+│   │   │   ├── register/    # POST: Register user
+│   │   │   ├── send-otp/    # POST: Send OTP email
+│   │   │   ├── verify-otp/  # POST: Verify OTP
+│   │   │   ├── logout/      # POST: Logout user
+│   │   │   └── me/          # GET: Get current user
+│   │   ├── chat/            # POST: AI chat completion
+│   │   ├── notes/           # POST: Summarize notes
+│   │   ├── quiz/            # POST: Generate quiz
+│   │   └── voice/           # POST: Transcribe voice
+│   ├── components/          # Reusable UI components
+│   │   ├── ChatInterface.jsx
+│   │   ├── Dashboard.jsx
+│   │   ├── NotesUpload.jsx
+│   │   ├── QuizGenerator.jsx
+│   │   ├── Sidebar.jsx
+│   │   ├── SocraticMode.jsx
+│   │   └── VoiceNotes.jsx
+│   ├── globals.css          # Global styles & Tailwind
+│   └── layout.js            # Root layout with providers
+├── context/                 # React Context providers
+│   ├── AuthContext.jsx      # Authentication state
+│   └── ThemeContext.jsx     # Dark/Light mode toggle
+├── lib/                     # Utility functions
+│   └── mongodb.js           # MongoDB connection
+├── models/                  # Mongoose models
+│   └── User.js              # User schema
+├── public/                  # Static assets
+├── .env.local               # Environment variables (create this)
+├── tailwind.config.js       # Tailwind configuration
+├── jsconfig.json            # Path aliases
+└── package.json             # Dependencies
 ```
 
-## 🎨 Design System
+## 🔐 Authentication Flow
 
-### Color Palette
-- **Primary (80%)**: Cream (#FFF9F5), Light Orange (#FFF4ED), Soft Orange (#FFEDD5)
-- **Accent (20%)**: Brand Orange (#FB923C), Deep Orange (#F97316), Dark Orange (#EA580C)
-- **Text**: Charcoal (#1F2937), Gray (#6B7280)
-
-### Typography
-- **Font**: Inter (Google Fonts)
-- **Headings**: 700 weight
-- **Body**: 400 weight
-
-### Components
-- Border radius: 16px (cards), 12px (buttons), 8px (inputs)
-- Borders: 2px solid dark gray
-- Shadows: Subtle orange glow on hover
-
-## 🔑 API Configuration
-
-### Getting a Groq API Key
-
-1. Visit [console.groq.com](https://console.groq.com)
-2. Sign up for a free account
-3. Navigate to API Keys section
-4. Generate a new API key
-5. Add to `.env.local`:
-```env
-GROQ_API_KEY=gsk_xxxxxxxxxxxx
+```
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  Register   │ ──► │  Send OTP   │ ──► │ Verify OTP  │
+│   (Form)    │     │  (Email)    │     │  (6-digit)  │
+└─────────────┘     └─────────────┘     └──────┬──────┘
+                                               │
+                                               ▼
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  Dashboard  │ ◄── │  JWT Token  │ ◄── │   Account   │
+│   (Home)    │     │  (7 days)   │     │  Created    │
+└─────────────┘     └─────────────┘     └─────────────┘
 ```
 
-### Supported Models
-- `llama-3.3-70b-versatile` (default, recommended)
-- `mixtral-8x7b-32768`
-- Other Groq-supported models
+## 🎨 UI Theme
 
-## 🚢 Deployment
+### Light Mode
+| Element | Color |
+|---------|-------|
+| Background | `#FFFCFA` (Cream) |
+| Card | `#FFFFFF` (White) |
+| Border | `#A89F97` (Dark Border) |
+| Text | `#1F2937` (Gray 800) |
 
-### Deploy to Vercel
+### Dark Mode
+| Element | Color |
+|---------|-------|
+| Background | `#0F0F0F` (Dark BG) |
+| Card | `#1A1A1A` (Dark Card) |
+| Border | `#3A3A3A` (Dark Border) |
+| Text | `#F5F5F5` (Light Text) |
 
-1. Push code to GitHub
-2. Connect repo to Vercel
-3. Add environment variable: `GROQ_API_KEY`
-4. Deploy!
+### Accent Colors
+| Purpose | Color |
+|---------|-------|
+| Brand Orange | `#FF8534` |
+| Grey-Violet (Sections) | `#2D2D3A` to `#5B5B8A` |
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+## 📱 Screenshots
 
-### Build for Production
+### Landing Page
+- Hero section with features
+- Testimonials from students
+- Call-to-action buttons
 
-```bash
-npm run build
-npm start
-```
+### Dashboard
+- Welcome header with stats
+- Quick action cards
+- Recent activity feed
 
-## 🌐 Browser Support
+### AI Chat
+- Real-time streaming responses
+- Message history
+- Copy & regenerate options
 
-- **Chrome/Edge**: Full support (including voice features)
-- **Firefox**: Partial support (voice may require enabling)
-- **Safari**: Full support on macOS
+### Socratic Mode
+- Topic selection
+- Guided questioning
+- Progress tracking
+
+## 🔧 API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Register new user |
+| POST | `/api/auth/login` | Login user |
+| POST | `/api/auth/send-otp` | Send OTP to email |
+| POST | `/api/auth/verify-otp` | Verify OTP code |
+| POST | `/api/auth/logout` | Logout user |
+| GET | `/api/auth/me` | Get current user |
+| POST | `/api/chat` | AI chat completion |
+| POST | `/api/notes` | Summarize notes |
+| POST | `/api/quiz` | Generate quiz |
+| POST | `/api/voice` | Transcribe voice |
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+1. Fork the repository
+2. Create your feature branch
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+3. Commit your changes
+   ```bash
+   git commit -m 'Add some AmazingFeature'
+   ```
+4. Push to the branch
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
 5. Open a Pull Request
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**1. MongoDB Connection Error**
+- Check if your IP is whitelisted in MongoDB Atlas
+- Verify connection string format
+
+**2. Email OTP Not Sending**
+- Ensure Gmail 2FA is enabled
+- Use App Password, not regular password
+- Check if "Less secure apps" is not needed (App Passwords bypass this)
+
+**3. Groq API Error**
+- Verify API key is correct
+- Check if you have API credits
+
+**4. Dark Mode Not Working**
+- Clear browser cache
+- Check if ThemeProvider wraps the app
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## 👨‍💻 Author
+
+**Yashodip More**
+
+- 🌐 GitHub: [@yashodipmore](https://github.com/yashodipmore)
+- 📧 Email: yashodipmore2004@gmail.com
+
 ## 🙏 Acknowledgments
 
-- Built for **Octopus Hackathon**
-- Powered by [Groq](https://groq.com) for fast AI inference
-- Icons by [Lucide](https://lucide.dev)
-- UI inspiration from modern study apps
+- [Next.js](https://nextjs.org/) - The React Framework for Production
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS Framework
+- [Groq](https://groq.com/) - Fast AI Inference Platform
+- [MongoDB](https://www.mongodb.com/) - Developer Data Platform
+- [Vercel](https://vercel.com/) - Frontend Cloud Platform
+- [Lucide Icons](https://lucide.dev/) - Beautiful & Consistent Icons
+- [Playfair Display](https://fonts.google.com/specimen/Playfair+Display) - Elegant Font
+- [Poppins](https://fonts.google.com/specimen/Poppins) - Modern Sans-Serif
 
 ---
 
 <div align="center">
-  <h3>StudySync AI</h3>
-  <p>Learn Smarter, Not Harder</p>
-  <p>Made with ❤️ for students everywhere</p>
+
+**⭐ Star this repo if you find it helpful!**
+
+Made with ❤️ by [Yashodip More](https://github.com/yashodipmore)
+
 </div>
