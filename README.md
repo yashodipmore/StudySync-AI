@@ -1,4 +1,4 @@
-# 📚 StudySync AI
+# StudySync AI
 
 > **The AI That Teaches, Not Just Tells** - Your intelligent study companion powered by AI
 
@@ -7,48 +7,48 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-blue?logo=tailwindcss)](https://tailwindcss.com/)
 [![Groq AI](https://img.shields.io/badge/Groq-LLaMA%203.3-orange)](https://groq.com/)
 
-## 🌟 Features
+## Features
 
-### 🤖 AI Chat Assistant
+### AI Chat Assistant
 - Real-time AI-powered chat with streaming responses
 - Context-aware conversations
 - Markdown support for formatted responses
 
-### 🧠 Socratic Learning Mode
+### Socratic Learning Mode
 - Learn through guided questioning
 - AI asks thought-provoking questions instead of giving direct answers
 - Deeper understanding of concepts
 
-### 🎤 Voice Notes
+### Voice Notes
 - Record voice notes with one click
 - AI automatically transcribes and formats your notes
 - Smart structuring of spoken content
 
-### 📝 Notes Upload & Summarization
+### Notes Upload & Summarization
 - Upload study materials (text/paste content)
 - AI generates intelligent summaries
 - Highlights key concepts and takeaways
 
-### 📊 Quiz Generator
+### Quiz Generator
 - Auto-generate quizzes from your notes
 - Multiple choice questions with explanations
 - Track your quiz performance
 
-### 🌓 Dark/Light Mode
+### Dark/Light Mode
 - Beautiful UI with theme toggle
 - Smooth transitions between modes
 - Comfortable reading in any lighting
 
-### 📱 Fully Responsive
+### Fully Responsive
 - Works on mobile, tablet, and desktop
 - Optimized touch interactions
 - Adaptive layouts
 
-## 🚀 Live Demo
+## Live Demo
 
-🔗 **[Visit StudySync AI](https://studysync-ai.vercel.app)**
+**[Visit StudySync AI](https://studysync-ai.vercel.app)**
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Category | Technology |
 |----------|------------|
@@ -60,7 +60,7 @@
 | **Email** | Nodemailer (Gmail SMTP) |
 | **Deployment** | Vercel |
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Node.js 18+ 
@@ -104,7 +104,7 @@ EMAIL_PASS=your-gmail-app-password
 EMAIL_FROM=StudySync AI <your-email@gmail.com>
 ```
 
-#### 🔑 Getting API Keys:
+#### Getting API Keys:
 
 **1. Groq API Key**
 - Sign up at [console.groq.com](https://console.groq.com)
@@ -140,7 +140,7 @@ npm run dev -- -H 0.0.0.0
 
 Access from other devices using your IP: `http://YOUR_IP:3000`
 
-## 🌐 Deployment on Vercel
+## Deployment on Vercel
 
 ### Method 1: Vercel CLI
 
@@ -160,14 +160,14 @@ vercel --prod
 4. Add environment variables in Project Settings
 5. Deploy!
 
-### ⚠️ Important: Add Environment Variables
+### Important: Add Environment Variables
 
 After deployment, go to:
 `Vercel Dashboard → Your Project → Settings → Environment Variables`
 
 Add all variables from your `.env.local` file.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 studysync-ai/
@@ -219,7 +219,7 @@ studysync-ai/
 └── package.json             # Dependencies
 ```
 
-## 🔐 Authentication Flow
+## Authentication Flow
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
@@ -234,7 +234,7 @@ studysync-ai/
 └─────────────┘     └─────────────┘     └─────────────┘
 ```
 
-## 🎨 UI Theme
+## UI Theme
 
 ### Light Mode
 | Element | Color |
@@ -258,7 +258,7 @@ studysync-ai/
 | Brand Orange | `#FF8534` |
 | Grey-Violet (Sections) | `#2D2D3A` to `#5B5B8A` |
 
-## 📱 Screenshots
+## Screenshots
 
 ### Landing Page
 - Hero section with features
@@ -280,7 +280,7 @@ studysync-ai/
 - Guided questioning
 - Progress tracking
 
-## 🔧 API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -295,7 +295,7 @@ studysync-ai/
 | POST | `/api/quiz` | Generate quiz |
 | POST | `/api/voice` | Transcribe voice |
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create your feature branch
@@ -312,7 +312,7 @@ studysync-ai/
    ```
 5. Open a Pull Request
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -333,18 +333,18 @@ studysync-ai/
 - Clear browser cache
 - Check if ThemeProvider wraps the app
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👨‍💻 Author
+## Author
 
 **Yashodip More**
 
-- 🌐 GitHub: [@yashodipmore](https://github.com/yashodipmore)
-- 📧 Email: yashodipmore2004@gmail.com
+- GitHub: [@yashodipmore](https://github.com/yashodipmore)
+- Email: yashodipmore2004@gmail.com
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Next.js](https://nextjs.org/) - The React Framework for Production
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS Framework
@@ -359,8 +359,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**⭐ Star this repo if you find it helpful!**
+**Star this repo if you find it helpful!**
 
-Made with ❤️ by [Yashodip More](https://github.com/yashodipmore)
+Made by [Yashodip More](https://github.com/yashodipmore)
 
 </div>
