@@ -185,7 +185,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-cream flex">
+    <div className="min-h-screen bg-cream dark:bg-dark-bg flex">
       {/* Left Side - Form */}
       <div className="flex-1 flex items-center justify-center px-4 sm:px-6 md:px-8 py-8 sm:py-12">
         <div className="w-full max-w-md">
@@ -194,20 +194,20 @@ export default function LoginPage() {
             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-deep-orange to-dark-orange rounded-xl flex items-center justify-center">
               <BookOpen className="text-white" size={20} />
             </div>
-            <span className="text-xl sm:text-2xl font-bold text-gray-900">StudySync AI</span>
+            <span className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-dark-text">StudySync AI</span>
           </Link>
 
           {loginMethod === 'password' ? (
             <>
               {/* Heading */}
               <div className="mb-6 sm:mb-8">
-                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 font-playfair">Welcome back</h1>
-                <p className="text-sm sm:text-base text-gray-600">Sign in to continue your learning journey</p>
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-dark-text mb-2 font-playfair">Welcome back</h1>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-dark-text-muted">Sign in to continue your learning journey</p>
               </div>
 
               {/* Error Alert */}
               {error && (
-                <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-xs sm:text-sm">
+                <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-red-700 dark:text-red-400 text-xs sm:text-sm">
                   {error}
                 </div>
               )}
@@ -232,7 +232,7 @@ export default function LoginPage() {
 
                 {/* Password */}
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">Password</label>
+                  <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-dark-text-muted mb-1.5 sm:mb-2">Password</label>
                   <div className="relative">
                     <Lock className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                     <input
@@ -241,7 +241,7 @@ export default function LoginPage() {
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Enter your password"
                       required
-                      className="w-full pl-10 sm:pl-12 pr-12 py-3 sm:py-3.5 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-deep-orange transition-colors text-sm sm:text-base text-gray-900 placeholder-gray-400"
+                      className="w-full pl-10 sm:pl-12 pr-12 py-3 sm:py-3.5 bg-white dark:bg-dark-surface border-2 border-gray-200 dark:border-dark-border rounded-xl focus:outline-none focus:border-deep-orange transition-colors text-sm sm:text-base text-gray-900 dark:text-dark-text placeholder-gray-400 dark:placeholder-gray-500"
                     />
                     <button
                       type="button"
@@ -275,15 +275,15 @@ export default function LoginPage() {
 
               {/* Divider */}
               <div className="flex items-center gap-3 sm:gap-4 my-5 sm:my-6">
-                <div className="flex-1 h-px bg-gray-200"></div>
-                <span className="text-xs sm:text-sm text-gray-500">or</span>
-                <div className="flex-1 h-px bg-gray-200"></div>
+                <div className="flex-1 h-px bg-gray-200 dark:bg-dark-border"></div>
+                <span className="text-xs sm:text-sm text-gray-500 dark:text-dark-text-muted">or</span>
+                <div className="flex-1 h-px bg-gray-200 dark:bg-dark-border"></div>
               </div>
 
               {/* OTP Login Button */}
               <button
                 onClick={() => setLoginMethod('otp')}
-                className="w-full py-3 sm:py-3.5 bg-white border-2 border-gray-200 text-gray-700 font-semibold rounded-xl hover:border-deep-orange hover:text-deep-orange transition-all flex items-center justify-center gap-2 text-sm sm:text-base"
+                className="w-full py-3 sm:py-3.5 bg-white dark:bg-dark-surface border-2 border-gray-200 dark:border-dark-border text-gray-700 dark:text-dark-text font-semibold rounded-xl hover:border-deep-orange hover:text-deep-orange transition-all flex items-center justify-center gap-2 text-sm sm:text-base"
               >
                 <Smartphone size={18} />
                 Sign in with OTP
@@ -294,20 +294,20 @@ export default function LoginPage() {
               {/* OTP - Email Step */}
               <button
                 onClick={() => setLoginMethod('password')}
-                className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6 sm:mb-8 transition-colors text-sm sm:text-base"
+                className="flex items-center gap-2 text-gray-600 dark:text-dark-text-muted hover:text-gray-900 dark:hover:text-dark-text mb-6 sm:mb-8 transition-colors text-sm sm:text-base"
               >
                 <ArrowLeft size={18} />
                 Back to password login
               </button>
 
               <div className="mb-6 sm:mb-8">
-                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 font-playfair">Sign in with OTP</h1>
-                <p className="text-sm sm:text-base text-gray-600">We'll send a verification code to your email</p>
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-dark-text mb-2 font-playfair">Sign in with OTP</h1>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-dark-text-muted">We'll send a verification code to your email</p>
               </div>
 
               {/* Error Alert */}
               {error && (
-                <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-xs sm:text-sm">
+                <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-red-700 dark:text-red-400 text-xs sm:text-sm">
                   {error}
                 </div>
               )}
@@ -315,7 +315,7 @@ export default function LoginPage() {
               <form onSubmit={handleSendOTP} className="space-y-4 sm:space-y-5">
                 {/* Email */}
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">Email Address</label>
+                  <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-dark-text-muted mb-1.5 sm:mb-2">Email Address</label>
                   <div className="relative">
                     <Mail className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                     <input
@@ -324,7 +324,7 @@ export default function LoginPage() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
                       required
-                      className="w-full pl-10 sm:pl-12 pr-4 py-3 sm:py-3.5 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-deep-orange transition-colors text-sm sm:text-base text-gray-900 placeholder-gray-400"
+                      className="w-full pl-10 sm:pl-12 pr-4 py-3 sm:py-3.5 bg-white dark:bg-dark-surface border-2 border-gray-200 dark:border-dark-border rounded-xl focus:outline-none focus:border-deep-orange transition-colors text-sm sm:text-base text-gray-900 dark:text-dark-text placeholder-gray-400 dark:placeholder-gray-500"
                     />
                   </div>
                 </div>
@@ -354,16 +354,16 @@ export default function LoginPage() {
               {/* OTP - Verify Step */}
               <button
                 onClick={resetToMethodSelect}
-                className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6 sm:mb-8 transition-colors text-sm sm:text-base"
+                className="flex items-center gap-2 text-gray-600 dark:text-dark-text-muted hover:text-gray-900 dark:hover:text-dark-text mb-6 sm:mb-8 transition-colors text-sm sm:text-base"
               >
                 <ArrowLeft size={18} />
                 Back
               </button>
 
               <div className="mb-6 sm:mb-8">
-                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 font-playfair">Enter verification code</h1>
-                <p className="text-sm sm:text-base text-gray-600">
-                  We've sent a 6-digit code to <span className="font-medium text-gray-900 break-all">{email}</span>
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-dark-text mb-2 font-playfair">Enter verification code</h1>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-dark-text-muted">
+                  We've sent a 6-digit code to <span className="font-medium text-gray-900 dark:text-dark-text break-all">{email}</span>
                 </p>
               </div>
 
@@ -376,7 +376,7 @@ export default function LoginPage() {
 
               {/* OTP Input */}
               <div className="mb-6 sm:mb-8">
-                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-3 sm:mb-4">Enter OTP</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-dark-text-muted mb-3 sm:mb-4">Enter OTP</label>
                 <div className="flex gap-2 sm:gap-3 justify-center" onPaste={handleOtpPaste}>
                   {otp.map((digit, index) => (
                     <input
@@ -388,7 +388,7 @@ export default function LoginPage() {
                       value={digit}
                       onChange={(e) => handleOtpChange(index, e.target.value)}
                       onKeyDown={(e) => handleOtpKeyDown(index, e)}
-                      className="w-10 h-12 sm:w-12 sm:h-14 text-center text-lg sm:text-xl font-bold bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-deep-orange transition-colors text-gray-900"
+                      className="w-10 h-12 sm:w-12 sm:h-14 text-center text-lg sm:text-xl font-bold bg-white dark:bg-dark-surface border-2 border-gray-200 dark:border-dark-border rounded-xl focus:outline-none focus:border-deep-orange transition-colors text-gray-900 dark:text-dark-text"
                     />
                   ))}
                 </div>
@@ -415,10 +415,10 @@ export default function LoginPage() {
 
               {/* Resend OTP */}
               <div className="mt-5 sm:mt-6 text-center">
-                <p className="text-gray-600 text-xs sm:text-sm">
+                <p className="text-gray-600 dark:text-dark-text-muted text-xs sm:text-sm">
                   Didn't receive the code?{' '}
                   {resendTimer > 0 ? (
-                    <span className="text-gray-400">Resend in {resendTimer}s</span>
+                    <span className="text-gray-400 dark:text-gray-500">Resend in {resendTimer}s</span>
                   ) : (
                     <button
                       onClick={handleResendOTP}
@@ -434,7 +434,7 @@ export default function LoginPage() {
           )}
 
           {/* Register Link */}
-          <p className="mt-6 sm:mt-8 text-center text-gray-600 text-sm sm:text-base">
+          <p className="mt-6 sm:mt-8 text-center text-gray-600 dark:text-dark-text-muted text-sm sm:text-base">
             Don't have an account?{' '}
             <Link href="/register" className="text-deep-orange font-semibold hover:text-dark-orange transition-colors">
               Create account

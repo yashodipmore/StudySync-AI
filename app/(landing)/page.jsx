@@ -3,14 +3,16 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useAuth } from '@/context/AuthContext'
+import { useTheme } from '@/context/ThemeContext'
 import { 
   BookOpen, Brain, Mic, FileText, HelpCircle, Sparkles, 
   ArrowRight, CheckCircle, Star, Play, Users, Zap, Shield,
-  Clock, BarChart3, MessageSquare, ChevronRight, Menu, X
+  Clock, BarChart3, MessageSquare, ChevronRight, Menu, X, Sun, Moon
 } from 'lucide-react'
 
 export default function LandingPage() {
   const { user, loading } = useAuth()
+  const { darkMode, toggleTheme } = useTheme()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -123,30 +125,38 @@ export default function LandingPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cream dark:bg-dark-bg">
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
+        scrolled ? 'bg-white/95 dark:bg-dark-card/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 sm:gap-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-soft-orange rounded-xl sm:rounded-2xl flex items-center justify-center border border-peach">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-soft-orange dark:bg-dark-surface rounded-xl sm:rounded-2xl flex items-center justify-center border border-peach dark:border-dark-border">
                 <BookOpen className="text-brand-orange" size={16} />
               </div>
-              <span className="text-lg sm:text-xl font-playfair font-semibold text-gray-800">StudySync AI</span>
+              <span className="text-lg sm:text-xl font-playfair font-semibold text-gray-800 dark:text-dark-text">StudySync AI</span>
             </Link>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 font-medium transition-colors">Features</a>
-              <a href="#benefits" className="text-gray-600 hover:text-gray-900 font-medium transition-colors">Benefits</a>
-              <a href="#testimonials" className="text-gray-600 hover:text-gray-900 font-medium transition-colors">Testimonials</a>
+              <a href="#features" className="text-gray-600 dark:text-dark-text-muted hover:text-gray-900 dark:hover:text-dark-text font-medium transition-colors">Features</a>
+              <a href="#benefits" className="text-gray-600 dark:text-dark-text-muted hover:text-gray-900 dark:hover:text-dark-text font-medium transition-colors">Benefits</a>
+              <a href="#testimonials" className="text-gray-600 dark:text-dark-text-muted hover:text-gray-900 dark:hover:text-dark-text font-medium transition-colors">Testimonials</a>
             </div>
 
             {/* Auth Buttons */}
             <div className="hidden md:flex items-center gap-4">
+              {/* Theme Toggle */}
+              <button
+                onClick={() => toggleTheme()}
+                className="p-2 rounded-xl bg-soft-orange dark:bg-dark-surface border border-peach dark:border-dark-border text-gray-600 dark:text-dark-text hover:bg-light-orange dark:hover:bg-dark-border transition-colors"
+              >
+                {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+              
               {!loading && (
                 user ? (
                   <Link 
@@ -157,7 +167,7 @@ export default function LandingPage() {
                   </Link>
                 ) : (
                   <>
-                    <Link href="/login" className="text-gray-700 font-medium hover:text-gray-900 transition-colors">
+                    <Link href="/login" className="text-gray-700 dark:text-dark-text-muted font-medium hover:text-gray-900 dark:hover:text-dark-text transition-colors">
                       Sign In
                     </Link>
                     <Link 
@@ -183,15 +193,25 @@ export default function LandingPage() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t">
+          <div className="md:hidden bg-white dark:bg-dark-card border-t dark:border-dark-border">
             <div className="px-6 py-4 space-y-4">
-              <a href="#features" className="block text-gray-600 font-medium">Features</a>
-              <a href="#benefits" className="block text-gray-600 font-medium">Benefits</a>
-              <a href="#testimonials" className="block text-gray-600 font-medium">Testimonials</a>
-              <hr className="my-4" />
+              <a href="#features" className="block text-gray-600 dark:text-dark-text-muted font-medium">Features</a>
+              <a href="#benefits" className="block text-gray-600 dark:text-dark-text-muted font-medium">Benefits</a>
+              <a href="#testimonials" className="block text-gray-600 dark:text-dark-text-muted font-medium">Testimonials</a>
+              
+              {/* Theme Toggle for Mobile */}
+              <button
+                onClick={() => toggleTheme()}
+                className="flex items-center gap-2 text-gray-600 dark:text-dark-text-muted font-medium"
+              >
+                {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+                {darkMode ? 'Light Mode' : 'Dark Mode'}
+              </button>
+              
+              <hr className="my-4 dark:border-dark-border" />
               {!loading && !user && (
                 <>
-                  <Link href="/login" className="block text-gray-700 font-medium">Sign In</Link>
+                  <Link href="/login" className="block text-gray-700 dark:text-dark-text-muted font-medium">Sign In</Link>
                   <Link href="/register" className="block w-full text-center px-6 py-3 bg-gradient-to-r from-deep-orange to-dark-orange text-white font-semibold rounded-button">
                     Get Started Free
                   </Link>
@@ -213,17 +233,17 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-soft-orange rounded-full mb-4 sm:mb-6">
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-soft-orange dark:bg-dark-surface rounded-full mb-4 sm:mb-6">
                 <Sparkles className="text-deep-orange" size={14} />
-                <span className="text-xs sm:text-sm font-medium text-gray-700">AI-Powered Learning Platform</span>
+                <span className="text-xs sm:text-sm font-medium text-gray-700 dark:text-dark-text-muted">AI-Powered Learning Platform</span>
               </div>
               
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-semibold text-gray-800 leading-tight mb-4 sm:mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-semibold text-gray-800 dark:text-dark-text leading-tight mb-4 sm:mb-6">
                 The AI That <span className="text-brand-orange">Teaches</span>, 
                 Not Just Tells
               </h1>
               
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0">
+              <p className="text-base sm:text-lg text-gray-600 dark:text-dark-text-muted leading-relaxed mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0">
                 Transform how you study with AI-powered tools that guide you to truly understand 
                 concepts through Socratic questioning, voice notes, and intelligent summarization.
               </p>
@@ -238,7 +258,7 @@ export default function LandingPage() {
                 </Link>
                 <a 
                   href="#features" 
-                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white border border-border-dark text-gray-700 font-medium rounded-xl sm:rounded-2xl hover:border-brand-orange hover:text-brand-orange transition-all text-sm sm:text-base"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white dark:bg-dark-surface border border-border-dark dark:border-dark-border text-gray-700 dark:text-dark-text font-medium rounded-xl sm:rounded-2xl hover:border-brand-orange hover:text-brand-orange transition-all text-sm sm:text-base"
                 >
                   <Play size={16} />
                   See How It Works
@@ -260,37 +280,37 @@ export default function LandingPage() {
                       <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-xs sm:text-sm text-gray-600">Loved by 50,000+ students</p>
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-dark-text-muted">Loved by 50,000+ students</p>
                 </div>
               </div>
             </div>
 
             {/* Right - Hero Image/Visual */}
             <div className="relative hidden md:block">
-              <div className="bg-white rounded-3xl shadow-lg p-6 border border-border-dark">
+              <div className="bg-white dark:bg-dark-card rounded-3xl shadow-lg p-6 border border-border-dark dark:border-dark-border">
                 {/* Mock App Interface */}
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-11 h-11 bg-soft-orange rounded-2xl flex items-center justify-center border border-peach">
+                  <div className="w-11 h-11 bg-soft-orange dark:bg-dark-surface rounded-2xl flex items-center justify-center border border-peach dark:border-dark-border">
                     <Brain className="text-brand-orange" size={20} />
                   </div>
                   <div>
-                    <h3 className="font-playfair font-semibold text-gray-800">Socratic Mode</h3>
-                    <p className="text-sm text-gray-500">Learning through discovery</p>
+                    <h3 className="font-playfair font-semibold text-gray-800 dark:text-dark-text">Socratic Mode</h3>
+                    <p className="text-sm text-gray-500 dark:text-dark-text-muted">Learning through discovery</p>
                   </div>
                 </div>
                 
                 <div className="space-y-4">
-                  <div className="bg-light-orange rounded-2xl p-4 border border-border-light">
-                    <p className="text-sm text-gray-700">You: What is photosynthesis?</p>
+                  <div className="bg-light-orange dark:bg-dark-surface rounded-2xl p-4 border border-border-light dark:border-dark-border">
+                    <p className="text-sm text-gray-700 dark:text-dark-text">You: What is photosynthesis?</p>
                   </div>
-                  <div className="bg-cream rounded-2xl p-4 border border-border-light">
-                    <p className="text-sm text-gray-700">
+                  <div className="bg-cream dark:bg-dark-surface/50 rounded-2xl p-4 border border-border-light dark:border-dark-border">
+                    <p className="text-sm text-gray-700 dark:text-dark-text">
                       <span className="text-brand-orange font-medium">AI:</span> Great question! Let me guide you to discover this yourself. 
                       What do you think plants need to survive? And where do you think they get their energy from?
                     </p>
                   </div>
                   <div className="flex gap-2">
-                    <div className="flex-1 h-10 bg-light-orange rounded-xl"></div>
+                    <div className="flex-1 h-10 bg-light-orange dark:bg-dark-surface rounded-xl"></div>
                     <div className="w-10 h-10 bg-brand-orange rounded-xl flex items-center justify-center">
                       <ArrowRight className="text-white" size={16} />
                     </div>
@@ -299,21 +319,21 @@ export default function LandingPage() {
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-md p-4 border border-border-light">
+              <div className="absolute -top-4 -right-4 bg-white dark:bg-dark-card rounded-2xl shadow-md p-4 border border-border-light dark:border-dark-border">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-green-50 rounded-xl flex items-center justify-center border border-green-100">
+                  <div className="w-8 h-8 bg-green-50 dark:bg-green-900/20 rounded-xl flex items-center justify-center border border-green-100 dark:border-green-800">
                     <CheckCircle className="text-green-500" size={14} />
                   </div>
-                  <span className="text-sm font-medium text-gray-700">Quiz Completed!</span>
+                  <span className="text-sm font-medium text-gray-700 dark:text-dark-text">Quiz Completed!</span>
                 </div>
               </div>
 
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-md p-4 border border-border-light">
+              <div className="absolute -bottom-4 -left-4 bg-white dark:bg-dark-card rounded-2xl shadow-md p-4 border border-border-light dark:border-dark-border">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-blue-50 rounded-xl flex items-center justify-center border border-blue-100">
+                  <div className="w-8 h-8 bg-blue-50 dark:bg-blue-900/20 rounded-xl flex items-center justify-center border border-blue-100 dark:border-blue-800">
                     <Mic className="text-blue-500" size={14} />
                   </div>
-                  <span className="text-sm font-medium text-gray-700">Voice note saved</span>
+                  <span className="text-sm font-medium text-gray-700 dark:text-dark-text">Voice note saved</span>
                 </div>
               </div>
             </div>
@@ -322,13 +342,13 @@ export default function LandingPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-10 sm:py-16 bg-white border-y border-border-light">
+      <section className="py-10 sm:py-16 bg-white dark:bg-dark-card border-y border-border-light dark:border-dark-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
             {stats.map((stat, idx) => (
               <div key={idx} className="text-center">
                 <div className="text-2xl sm:text-3xl md:text-4xl font-playfair font-semibold text-brand-orange mb-1 sm:mb-2">{stat.value}</div>
-                <div className="text-xs sm:text-sm md:text-base text-gray-500">{stat.label}</div>
+                <div className="text-xs sm:text-sm md:text-base text-gray-500 dark:text-dark-text-muted">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -339,14 +359,14 @@ export default function LandingPage() {
       <section id="features" className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-soft-orange rounded-full mb-3 sm:mb-4 border border-peach">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-soft-orange dark:bg-dark-surface rounded-full mb-3 sm:mb-4 border border-peach dark:border-dark-border">
               <Sparkles className="text-brand-orange" size={12} />
-              <span className="text-xs sm:text-sm font-medium text-gray-600">Powerful Features</span>
+              <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-dark-text-muted">Powerful Features</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-playfair font-semibold text-gray-800 mb-3 sm:mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-playfair font-semibold text-gray-800 dark:text-dark-text mb-3 sm:mb-4">
               Everything You Need to Study Smarter
             </h2>
-            <p className="text-sm sm:text-base text-gray-500 max-w-2xl mx-auto px-2">
+            <p className="text-sm sm:text-base text-gray-500 dark:text-dark-text-muted max-w-2xl mx-auto px-2">
               A complete suite of AI-powered tools designed to transform your learning experience
             </p>
           </div>
@@ -355,13 +375,13 @@ export default function LandingPage() {
             {features.map((feature, idx) => (
               <div 
                 key={idx}
-                className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-border-dark hover:shadow-md hover:border-brand-orange/30 transition-all group"
+                className="bg-white dark:bg-dark-card rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-border-dark dark:border-dark-border hover:shadow-md hover:border-brand-orange/30 transition-all group"
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-soft-orange rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-5 border border-peach group-hover:scale-105 transition-transform">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-soft-orange dark:bg-dark-surface rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-5 border border-peach dark:border-dark-border group-hover:scale-105 transition-transform">
                   <feature.icon className="text-brand-orange" size={18} />
                 </div>
-                <h3 className="text-base sm:text-lg font-playfair font-semibold text-gray-800 mb-2 sm:mb-3">{feature.title}</h3>
-                <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">{feature.description}</p>
+                <h3 className="text-base sm:text-lg font-playfair font-semibold text-gray-800 dark:text-dark-text mb-2 sm:mb-3">{feature.title}</h3>
+                <p className="text-gray-500 dark:text-dark-text-muted text-xs sm:text-sm leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -398,17 +418,17 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-12 sm:py-20 px-4 sm:px-6 bg-white">
+      <section id="testimonials" className="py-12 sm:py-20 px-4 sm:px-6 bg-white dark:bg-dark-card">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-soft-orange rounded-full mb-3 sm:mb-4">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-soft-orange dark:bg-dark-surface rounded-full mb-3 sm:mb-4">
               <Star className="text-deep-orange fill-deep-orange" size={14} />
-              <span className="text-xs sm:text-sm font-medium text-gray-700">Student Reviews</span>
+              <span className="text-xs sm:text-sm font-medium text-gray-700 dark:text-dark-text-muted">Student Reviews</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-dark-text mb-3 sm:mb-4">
               Loved by Students Everywhere
             </h2>
-            <p className="text-sm sm:text-lg text-gray-600 max-w-2xl mx-auto px-2">
+            <p className="text-sm sm:text-lg text-gray-600 dark:text-dark-text-muted max-w-2xl mx-auto px-2">
               See what students are saying about their learning transformation
             </p>
           </div>
@@ -417,14 +437,14 @@ export default function LandingPage() {
             {testimonials.map((testimonial, idx) => (
               <div 
                 key={idx}
-                className="bg-cream rounded-xl sm:rounded-2xl p-5 sm:p-8 border border-gray-100"
+                className="bg-cream dark:bg-dark-surface rounded-xl sm:rounded-2xl p-5 sm:p-8 border border-gray-100 dark:border-dark-border"
               >
                 <div className="flex items-center gap-0.5 mb-3 sm:mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
                   ))}
                 </div>
-                <p className="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-lg">
+                <p className="text-gray-700 dark:text-dark-text leading-relaxed mb-4 sm:mb-6 text-sm sm:text-lg">
                   "{testimonial.content}"
                 </p>
                 <div className="flex items-center gap-3 sm:gap-4">
@@ -432,8 +452,8 @@ export default function LandingPage() {
                     <span className="text-white font-semibold text-sm sm:text-base">{testimonial.name.charAt(0)}</span>
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900 text-sm sm:text-base">{testimonial.name}</div>
-                    <div className="text-xs sm:text-sm text-gray-500">{testimonial.role}</div>
+                    <div className="font-semibold text-gray-900 dark:text-dark-text text-sm sm:text-base">{testimonial.name}</div>
+                    <div className="text-xs sm:text-sm text-gray-500 dark:text-dark-text-muted">{testimonial.role}</div>
                   </div>
                 </div>
               </div>
@@ -445,10 +465,10 @@ export default function LandingPage() {
       {/* CTA Section */}
       <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-dark-text mb-4 sm:mb-6">
             Ready to Transform Your Learning?
           </h2>
-          <p className="text-sm sm:text-lg text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
+          <p className="text-sm sm:text-lg text-gray-600 dark:text-dark-text-muted mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
             Join thousands of students who are already studying smarter with AI. 
             Get started for free today.
           </p>
@@ -462,7 +482,7 @@ export default function LandingPage() {
             </Link>
             <Link 
               href="/login" 
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white border-2 border-gray-200 text-gray-700 font-semibold rounded-button hover:border-deep-orange transition-all text-sm sm:text-base"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white dark:bg-dark-surface border-2 border-gray-200 dark:border-dark-border text-gray-700 dark:text-dark-text font-semibold rounded-button hover:border-deep-orange transition-all text-sm sm:text-base"
             >
               Already have an account?
               <ChevronRight size={18} />

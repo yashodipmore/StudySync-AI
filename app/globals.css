@@ -246,8 +246,7 @@ input:focus,
 textarea:focus,
 button:focus {
   outline: none;
-  ring: 2px;
-  ring-color: #FB923C;
+  box-shadow: 0 0 0 2px #FB923C;
 }
 
 /* Markdown styling for AI responses */

@@ -1,5 +1,5 @@
 import './globals.css'
-import { ThemeProvider } from './context/ThemeContext'
+import { ThemeProvider } from '@/context/ThemeContext'
 
 export const metadata = {
   title: 'StudySync AI - The AI That Teaches, Not Just Tells',

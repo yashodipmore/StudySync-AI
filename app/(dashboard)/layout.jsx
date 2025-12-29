@@ -19,10 +19,10 @@ function DashboardContent({ children }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-cream flex items-center justify-center">
+      <div className="min-h-screen bg-cream dark:bg-dark-bg flex items-center justify-center">
         <div className="text-center">
           <Loader2 className="animate-spin text-deep-orange mx-auto mb-4" size={40} />
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-gray-600 dark:text-dark-text-muted">Loading...</p>
         </div>
       </div>
     )
@@ -33,7 +33,7 @@ function DashboardContent({ children }) {
   }
 
   return (
-    <div className="flex min-h-screen bg-cream">
+    <div className="flex min-h-screen bg-cream dark:bg-dark-bg">
       <Sidebar />
       {/* Main content - responsive margins */}
       <main className="flex-1 md:ml-64 p-4 md:p-6 lg:p-8 pt-20 md:pt-6">
