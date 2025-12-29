@@ -1,0 +1,8 @@
+# Ignore screenshots folder (only needed for GitHub README)
+snapshots/
+
+# Ignore hackathon submission file
+HACKATHON_SUBMISSION.md
+
+# Ignore markdown files
+*.md

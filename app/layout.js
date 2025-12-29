@@ -1,5 +1,6 @@
 import './globals.css'
 import { ThemeProvider } from '@/context/ThemeContext'
+import AuthSessionProvider from '@/context/SessionProvider'
 
 export const metadata = {
   title: 'StudySync AI - The AI That Teaches, Not Just Tells',
@@ -25,9 +26,11 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased font-poppins bg-cream dark:bg-dark-bg transition-colors duration-300">
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <AuthSessionProvider>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </AuthSessionProvider>
       </body>
     </html>
   )
